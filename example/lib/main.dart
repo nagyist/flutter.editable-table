@@ -13,8 +13,28 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Colors.blue,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        extensions: const <ThemeExtension<dynamic>>[
+          EditableThemeData(
+            borderColor: Colors.blueGrey,
+            tdStyle: TextStyle(fontWeight: FontWeight.bold),
+            trHeight: 80,
+            thStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            thAlignment: TextAlign.center,
+            thVertAlignment: CrossAxisAlignment.end,
+            thPaddingBottom: 3,
+            tdAlignment: TextAlign.left,
+            tdEditableMaxLines: 100,
+            tdPaddingTop: 0,
+            tdPaddingBottom: 14,
+            tdPaddingLeft: 10,
+            tdPaddingRight: 8,
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue),
+              borderRadius: BorderRadius.all(Radius.circular(0)),
+            ),
+          ),
+        ],
       ),
       home: MyHomePage(title: 'Editable example'),
     );
@@ -144,26 +164,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 onSubmitted: (value) {
                   print(value);
                 },
-                borderColor: Colors.blueGrey,
-                tdStyle: TextStyle(fontWeight: FontWeight.bold),
-                trHeight: 80,
-                thStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                thAlignment: TextAlign.center,
-                thVertAlignment: CrossAxisAlignment.end,
-                thPaddingBottom: 3,
                 showSaveIcon: true,
                 saveIconColor: Colors.black,
                 showCreateButton: true,
-                tdAlignment: TextAlign.left,
-                tdEditableMaxLines: 100, // don't limit and allow data to wrap
-                tdPaddingTop: 0,
-                tdPaddingBottom: 14,
-                tdPaddingLeft: 10,
-                tdPaddingRight: 8,
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
-                  borderRadius: BorderRadius.all(Radius.circular(0)),
-                ),
               ),
             ),
           ],
