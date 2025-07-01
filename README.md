@@ -134,6 +134,25 @@ To create a new table, use the `Editable()` widget class and provide the table d
         )
         ```
   - `createButtonLabel`:  Label for the create new row button
+
+### EditableTheme
+
+Default styles can be supplied using `EditableThemeData`. Add the theme to
+`ThemeData.extensions` or wrap a subtree with `EditableTheme`:
+
+```dart
+MaterialApp(
+  theme: ThemeData(
+    extensions: const [
+      EditableThemeData(borderColor: Colors.blueGrey),
+    ],
+  ),
+  home: MyHomePage(),
+);
+```
+
+Unset parameters on widgets will fall back to values from the nearest
+`EditableTheme`.
  
 ### Save methods
 
